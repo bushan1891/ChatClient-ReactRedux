@@ -1,13 +1,10 @@
 .side_container{
-margin:0.2em;
-padding: 1em;
-height:5em;
-width: 20%;
+margin-top:0.2em;
+margin-left: 0.2em;
+text-align: center;
 background-color: #373a3c;
 border-radius: .3em;
 }
-
-
 .item{
 	text-decoration: none;
 	padding:.2em;
@@ -16,9 +13,19 @@ border-radius: .3em;
 }
 
 a{
-text-decoration: none;	
+text-decoration: none;
+color:#ecf0f1;	
 }
 
 a:hover{
 	text-decoration: none;
+	color: white;
+}
+
+.create_table_form{
+	background-color:#373a3c;
+	margin:.2em .2em .2em .2em;
+	padding:1em;
+	border-radius: .3em;
+	color: rgba(255, 255, 255, 0.5);  
 }

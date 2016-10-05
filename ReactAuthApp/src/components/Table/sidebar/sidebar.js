@@ -7,7 +7,7 @@ class SideBar extends Component{
 		return(
 			<div className={styles.side_container}>
 			<ul className={styles.side_list}>
-				<li className={styles.item}><Link to="/createtable">Create Table</Link></li>
+				<li className={styles.item}><Link to="/table/create">Create Table</Link></li>
 				<li className={styles.item}><Link to="/viewtable">View Table</Link></li>
 			</ul>
 		</div>

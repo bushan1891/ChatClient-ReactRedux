@@ -6,8 +6,15 @@ import SideBar from './sidebar/sidebar';
 class Table extends Component {
 	render(){
 		return (
-			<div className={styles.table_container}>
-			<SideBar />
+			<div className="">
+				<div className="row">
+					<div className="col-md-3">
+						<SideBar />
+					</div>	
+					<div className="col-md-9">
+						{this.props.children}	
+					</div>
+				</div>
 			</div>
 			)
 	}
