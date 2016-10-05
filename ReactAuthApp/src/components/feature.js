@@ -9,7 +9,10 @@ class Feature extends Component {
 
 	render(){
 		return(
-			<div>Hey feature</div>
+			<div >
+				
+				Feature	
+			</div>
 			)
 	}
 }

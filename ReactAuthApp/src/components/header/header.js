@@ -1,15 +1,21 @@
 import React from 'react';
 import {connect } from 'react-redux';
 import { Link } from 'react-router';
+import styles from './styles.css';
 class Header extends React.Component {
 
 renderLinks(){
 
   if(this.props.authenticated){
     return (
-      <li className="nav-item">
-          <Link to="/signout" className="nav-link">Sign out</Link>
-      </li>
+      <div>
+          <li className="nav-item">
+              <Link to="/signout" className="nav-link">Sign out</Link>
+          </li>
+          <li className="nav-item">
+              <Link to="/table" className="nav-link">Table</Link>
+          </li>
+      </div>
     )
   } else{
     return  [
@@ -28,7 +34,7 @@ renderLinks(){
 
   render(){
     return (
-      <nav className="navbar navbar-dark bg-inverse ">
+      <nav className="navbar navbar-dark bg-inverse" >
         <Link to="/" className="navbar-brand" >JCS</Link>
         <ul className="nav navbar-nav">
           {this.renderLinks()}

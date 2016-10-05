@@ -1,0 +1,24 @@
+.side_container{
+margin:0.2em;
+padding: 1em;
+height:5em;
+width: 20%;
+background-color: #373a3c;
+border-radius: .3em;
+}
+
+
+.item{
+	text-decoration: none;
+	padding:.2em;
+	margin-left: .4em;
+	color:white;
+}
+
+a{
+text-decoration: none;	
+}
+
+a:hover{
+	text-decoration: none;
+}
