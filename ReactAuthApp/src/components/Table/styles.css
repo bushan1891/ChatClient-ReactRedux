@@ -29,3 +29,10 @@ a:hover{
 	border-radius: .3em;
 	color: rgba(255, 255, 255, 0.5);  
 }
+.table_view_container{
+	margin:.2em;
+	padding:.2em;
+}
+.table_item:{
+	max-width: 5em;
+}

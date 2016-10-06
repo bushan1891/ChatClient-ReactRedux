@@ -14,6 +14,7 @@ import Feature from './components/feature';
 import Table from './components/Table/table_index';
 import SideBar from './components/Table/sidebar/sidebar';
 import CreateTable from './components/Table/createtable/create_table'
+import ViewTable from './components/Table/viewtable/viewtable';
 import RequireAuth from './components/auth/require_auth';
 
 
@@ -55,6 +56,7 @@ ReactDOM.render(
         <Route path="/signup" component ={Signup} />
         <Route path="/table" component ={Table} >
           <Route path="/table/create" component= {CreateTable}/>
+          <Route path="/table/view" component= {ViewTable}/>
         </Route>
 		<Route path="/feature" component={RequireAuth(Feature)}/>
       </Route>
