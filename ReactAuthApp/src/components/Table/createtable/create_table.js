@@ -3,6 +3,7 @@ import styles from '../styles.css';
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
 import { createAction } from 'redux-actions';
+import SweetAlert from 'sweetalert-react';
 import { POST_TABLE , POST_TABLE_SUCCESSFUL , FETCH_TABLES} from '../types';
 
 class CreateTable extends Component{
@@ -19,11 +20,12 @@ class CreateTable extends Component{
 			}		
 			const postTable = this.props.postTable;
 			postTable(table);
-
+			swal("Good job!", "You submited the table!", "success");
 		}
 
 	render(){
-		const { handleSubmit,fields:{ tableName,tableColumnCount,tableRowCount,tableHeader} } = this.props;
+		
+	    const { handleSubmit,fields:{ tableName,tableColumnCount,tableRowCount,tableHeader} } = this.props;
 		return (
 			<form className={styles.create_table_form} onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 				<fieldset className="form-group">

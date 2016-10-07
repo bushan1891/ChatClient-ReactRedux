@@ -6,12 +6,12 @@ import SideBar from './sidebar/sidebar';
 class Table extends Component {
 	render(){
 		return (
-			<div className="">
+			<div className={styles.tableview}>
 				<div className="row">
-					<div className="col-md-3">
+					<div className="col-md-3 left_sidebar">
 						<SideBar />
 					</div>	
-					<div className="col-md-9">
+					<div className="col-md-9 right_sidebar">
 						{this.props.children}	
 					</div>
 				</div>

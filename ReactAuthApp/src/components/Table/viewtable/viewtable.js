@@ -1,4 +1,5 @@
 import React ,{Component } from 'react';
+import {Link} from 'react-router';
 import styles from '../styles.css';
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
@@ -45,15 +46,18 @@ componentWillMount(){
 
 class ListItemWrapper extends React.Component {
   render() {
-    return (<div className="card card-inverse card-warning text-xs-center">
-    			  <div className="card-block">
+    return (<div className="col-md-6">
+			<div className={styles.card}>
+    			  <div className="card-block card card-inverse card-warning text-xs-center">
     			    <blockquote className="card-blockquote">
-    			      <p>{this.props.data.tableName}</p>
+    			      <h1 className={styles.title}>{this.props.data.tableName}</h1>
     			      <lable> Number of Rows :</lable> {this.props.data.tableRowCount} <br/ >
-    			      <lable> Number of Rows :</lable> {this.props.data.tableColumnCount}
+    			      <lable> Number of Rows :</lable> {this.props.data.tableColumnCount} <br/>
+    			      <Link to ={`/table/view/${this.props.data._id}`}><i className="fa fa-pencil fa-fw"></i>Edit</Link>
     			    </blockquote>
     			  </div>
-    		 </div>);
+    		 </div>			
+    		</div>);
   }
 }
 function mapDispatchToProps(dispatch) {

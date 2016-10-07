@@ -4,18 +4,38 @@ import { Link } from 'react-router';
 import styles from './styles.css';
 class Header extends React.Component {
 
+  renderCartCount(){
+    if(this.props.cart.table.length >0){
+      return(<div className={styles.count} >
+          <div className="animated rubberBand">{this.props.cart.table.length}</div>
+           </div>
+        )
+    }
+    else{
+      return(
+      <div></div>
+      )
+    }
+  }
+
 renderLinks(){
 
   if(this.props.authenticated){
     return (
-      <div>
-          <li className="nav-item">
-              <Link to="/signout" className="nav-link">Sign out</Link>
-          </li>
-          <li className="nav-item">
+      <ul className="nav navbar-nav navbar-right">
+       <li className="nav-item">
               <Link to="/table" className="nav-link">Table</Link>
-          </li>
-      </div>
+       </li>
+        <li className="nav-item">
+        <Link to="/signout" className="nav-link">Sign out</Link>
+        </li> 
+        <li className="nav-item"> 
+        
+        <Link to="/" className="nav-link"><i className="fa fa-shopping-cart fa-fw"></i>Cart   {this.renderCartCount()} 
+        </Link>
+       
+        </li>       
+      </ul>
     )
   } else{
     return  [
@@ -47,7 +67,8 @@ renderLinks(){
 
 function mapStateToProps(state){
 return {
-  authenticated: state.auth.authenticated
+  authenticated: state.auth.authenticated,
+  cart:state.cart,
 }
 }
 

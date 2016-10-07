@@ -1,9 +1,10 @@
 .side_container{
-margin-top:0.2em;
+margin-top:0.4em;
 margin-left: 0.2em;
 text-align: center;
 background-color: #373a3c;
 border-radius: .3em;
+font-size: 13px;
 }
 .item{
 	text-decoration: none;
@@ -35,4 +36,38 @@ a:hover{
 }
 .table_item:{
 	max-width: 5em;
+}
+
+.title{
+	font-size: 15px;
+	color:#34495e;
+	font-style: bold;
+	padding:.5em;
+}
+.card{
+font-size: 9px;
+overflow:scroll;
+
+}
+.card:hover{
+	cursor: pointer;
+}
+
+.tableview{
+	margin:0px;
+	font-size: 13px;
+}
+
+.module_heading{
+	border-radius:1em;
+	color:#7f8c8d;
+	background-color: #ecf0f1;
+}
+.count{
+display: inline-block;
+background-color: white;
+border-radius: 7px;
+color:red;
+width:1em;
+font-size: 14px;
 }

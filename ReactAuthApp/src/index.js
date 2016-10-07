@@ -15,6 +15,10 @@ import Table from './components/Table/table_index';
 import SideBar from './components/Table/sidebar/sidebar';
 import CreateTable from './components/Table/createtable/create_table'
 import ViewTable from './components/Table/viewtable/viewtable';
+import EditTable from './components/Table/viewtable/edittable/edittable';
+import EditWrapper from './components/Table/viewtable/edittable/editwrapper';
+import Cart_Index from './components/Cart/cart_index';
+
 import RequireAuth from './components/auth/require_auth';
 
 
@@ -22,7 +26,7 @@ import reducers from './reducers';
 import { Router , Route , IndexRoute , browserHistory } from 'react-router';
 import {AUTH_USER} from './actions/types';
 import {Config} from './sagas/rootsaga.js';
-import {postTable} from './components/table/table_sagas';
+import {postTable , cart} from './components/table/table_sagas';
 
 const sagaMiddleware = createSagaMiddleware()
 const createStoreWithMiddleware = applyMiddleware(sagaMiddleware,reduxThunk,logger())(createStore);
@@ -33,6 +37,7 @@ const store = createStoreWithMiddleware(reducers);
 // run sagas 
 sagaMiddleware.run(Config);
 sagaMiddleware.run(postTable);
+sagaMiddleware.run(cart);
 
 
 
@@ -57,6 +62,8 @@ ReactDOM.render(
         <Route path="/table" component ={Table} >
           <Route path="/table/create" component= {CreateTable}/>
           <Route path="/table/view" component= {ViewTable}/>
+          <Route path="/table/view/:id" component = {EditWrapper} />
+          <Route path="/cart" component ={Cart_Index} />
         </Route>
 		<Route path="/feature" component={RequireAuth(Feature)}/>
       </Route>

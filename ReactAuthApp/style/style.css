@@ -42,7 +42,6 @@ blockquote, q {
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
 	content: none;
 }
 table {
@@ -52,5 +51,26 @@ table {
 
 body{
 font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+font-size: 14px;
+}
+.left_sidebar{
+	margin:0px !important;
+	padding:0px !important;
+	margin-top: .1em;
+}
+.right_sidebar{
+	margin-left: 0px !important;
+    padding-left: 0px !important;
+}
+.pull-right{
+	margin-left:40em;
+}
+
+.count{
+display: inline-block;
+background-color: white;
+border-radius: 7px;
+color:red;
+width:1em;
 font-size: 14px;
 }

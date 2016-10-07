@@ -2,7 +2,7 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { AUTH_USER , AUTH_ERROR , UNAUTH_USER} from './types';
 const ROOT_URL = 'http://localhost:3090';
-
+import SweetAlert from 'sweetalert-react';
 
 export function signinUser({email,password}){
 return function(dispatch){
@@ -23,7 +23,6 @@ return function(dispatch){
     }).catch(error =>{
         dispatch(authError('Bad Login info'));
     })
-
 }
 }
 
@@ -64,7 +63,7 @@ export function authError(error){
 
 export function signoutUser(){
 localStorage.removeItem('token');
-
+swal({   title: "Auto close alert!",   text: "Logging out user! ",   timer: 2000,   showConfirmButton: false });
   return{
     type:UNAUTH_USER
   }
