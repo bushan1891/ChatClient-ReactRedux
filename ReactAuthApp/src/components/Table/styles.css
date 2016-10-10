@@ -1,6 +1,6 @@
 .side_container{
 margin-top:0.1em;
-margin-left: 1em;
+margin-left: 1.5em;
 text-align: center;
 background-color: #14120C;
 font-size: 13px;
@@ -71,6 +71,7 @@ a:hover{
 .tableview{
 	margin:0px;
 	font-size: 10px;
+	background-color: white;
 }
 
 .module_heading{
