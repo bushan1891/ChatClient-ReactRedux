@@ -9,8 +9,7 @@ export default function(state=initialState,action){
 		return {...state,table:state.table.concat(action.payload)};
 
 		case UPDATE_TO_CART:
-		const table =[];
-		table.push(action.payload);
+		const table =action.payload;
 		return {...state,table:table};
 
 		case ADD_TO_CART:

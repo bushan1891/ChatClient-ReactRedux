@@ -1,6 +1,5 @@
 import React , {Component} from 'react'; 
 import ReactDataGrid from 'react-data-grid';
-import ReactDataGridPlugins from 'react-data-grid/addons';
 import styles from './styles.css';
 import {connect} from 'react-redux';
 
@@ -37,7 +36,7 @@ var EditTable = React.createClass({
           columns={this.props.data.tableHeader}
           rowGetter={this.rowGetter}
           rowsCount={this.props.data.tableRows.length}
-          minHeight={300}
+          
           rowSelection={{
             showCheckbox: true,
             enableShiftSelect: false,

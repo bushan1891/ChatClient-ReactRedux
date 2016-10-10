@@ -21,6 +21,8 @@ import Cart_Index from './components/Cart/cart_index';
 
 import RequireAuth from './components/auth/require_auth';
 
+import Auth0_lock from './components/auth/auth0_login';
+
 
 import reducers from './reducers';
 import { Router , Route , IndexRoute , browserHistory } from 'react-router';

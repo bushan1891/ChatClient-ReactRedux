@@ -22,21 +22,17 @@ componentWillMount(){
 			}
 
 			return( 
-			<div className={styles.table_view_container}>
-					<ul className="">
+			<div className={styles.flex_container}>	
 						{tables.map((result) => (
                        <ListItemWrapper key={result._id} data={result} />
         										))}
-					</ul>
 				</div>
 			)
 		}
 		else{
 			return(
 			<div className={styles.table_view_container}>
-					<ul className="">
 					Loading...
-					</ul>
 				</div>
 			)
 
@@ -46,17 +42,14 @@ componentWillMount(){
 
 class ListItemWrapper extends React.Component {
   render() {
-    return (<div className="col-md-6">
-			<div className={styles.card}>
-    			  <div className="card-block card card-inverse card-warning text-xs-center">
-    			    <blockquote className="card-blockquote">
+    return (<div className={styles.flex_item1}>
     			      <h1 className={styles.title}>{this.props.data.tableName}</h1>
     			      <lable> Number of Rows :</lable> {this.props.data.tableRowCount} <br/ >
     			      <lable> Number of Rows :</lable> {this.props.data.tableColumnCount} <br/>
+    			     <button className="btn btn-default edit_button">
     			      <Link to ={`/table/view/${this.props.data._id}`}><i className="fa fa-pencil fa-fw"></i>Edit</Link>
-    			    </blockquote>
-    			  </div>
-    		 </div>			
+    			     </button>
+    			     
     		</div>);
   }
 }

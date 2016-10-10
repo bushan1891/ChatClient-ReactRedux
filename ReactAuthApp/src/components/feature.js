@@ -10,8 +10,8 @@ class Feature extends Component {
 	render(){
 		return(
 			<div >
-				
-				Feature	
+<iframe src="http://jcsdemo.com/#/login" width="100%" height="600px" />
+
 			</div>
 			)
 	}

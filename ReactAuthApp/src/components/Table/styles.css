@@ -1,9 +1,8 @@
 .side_container{
-margin-top:0.4em;
-margin-left: 0.2em;
+margin-top:0.1em;
+margin-left: 1em;
 text-align: center;
-background-color: #373a3c;
-border-radius: .3em;
+background-color: #14120C;
 font-size: 13px;
 }
 .item{
@@ -44,22 +43,37 @@ a:hover{
 	font-style: bold;
 	padding:.5em;
 }
-.card{
-font-size: 9px;
-overflow:scroll;
 
-}
-.card:hover{
-	cursor: pointer;
+.flex_container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #14120C;
+  margin-left:2em;
+  margin-top:.2em;
+  height: 100%;
+  padding: 1em;
 }
 
+.flex_item1{
+  height: 15em;
+  width: 25em;
+  flex-grow: 1;
+  background-color: #f1c40f;
+  padding:10px;
+  margin:1em;
+}
+.flex_item1:hover{
+	box-shadow:0px 0px 7px 4px white;
+	cursor:pointer;
+}
 .tableview{
 	margin:0px;
-	font-size: 13px;
+	font-size: 10px;
 }
 
 .module_heading{
-	border-radius:1em;
 	color:#7f8c8d;
 	background-color: #ecf0f1;
 }

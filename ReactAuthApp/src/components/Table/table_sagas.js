@@ -74,32 +74,57 @@ export function* FetchTableWatcher(){
 export function* createCart(action){
 	// check cart for exsisting item 
 	const cart = yield select(getCart);
-		console.log(action);
+
+	// when cart is empty 
 	if(cart.table.length==0){
 		// no cart preset create a new cart 
 	 yield put(createAction(NEW_CART)(action.payload));	
 	
 	}
-
+	// when cart gets different element 
 	else if(true){
+
 		var diffTable=false;
+		var sameTable=false;
 	     cart.table.forEach(function(obj){
 			if(!(obj._id==action.payload._id)){
-				alert('different');
-				diffTable=true
-			// put(createAction(ADD_TO_CART)(action.payload));
+				diffTable=true;
 			}
+			if(obj._id==action.payload._id){
+				sameTable=true;
+			}
+
 		})
-	     if(diffTable==true){
+			//if diffrent table found add it to the cart 
+	     if(diffTable==true&&sameTable==false){
 	     yield put(createAction(ADD_TO_CART)(action.payload));	
 	     }
+
+	     // if same table found update the entire cart
+		if(sameTable==true){
+			var newCartTable =[];
+			cart.table.forEach(function(obj){
+				if(obj._id==action.payload._id){
+					newCartTable.push(action.payload);
+				}
+				else if(!(obj._id==action.payload._id)){
+					newCartTable.push(obj);
+				}
+
+			});
+				// size of cart and new cart must be same 
+				if(cart.table.length==newCartTable.length){
+					swal('Updated Your Cart !');
+					 yield put(createAction(UPDATE_TO_CART)(newCartTable));	
+				}
+				else{
+					alert('error updating');
+				}	
+
+		}
+
 	    
 	}	
-	//update 
-	else{
-		alert('update');
-		yield put(createAction(UPDATE_TO_CART)(action.payload));
-	}
 
 }
 // 

@@ -26,15 +26,13 @@ renderLinks(){
        <li className="nav-item">
               <Link to="/table" className="nav-link">Table</Link>
        </li>
-        <li className="nav-item">
+        <li className="nav-item pull-xs-right">
         <Link to="/signout" className="nav-link">Sign out</Link>
         </li> 
-        <li className="nav-item"> 
-        
+        <li className="nav-item pull-xs-right"> 
         <Link to="/" className="nav-link"><i className="fa fa-shopping-cart fa-fw"></i>Cart   {this.renderCartCount()} 
         </Link>
-       
-        </li>       
+        </li> 
       </ul>
     )
   } else{
@@ -54,7 +52,7 @@ renderLinks(){
 
   render(){
     return (
-      <nav className="navbar navbar-dark bg-inverse" >
+      <nav className="navbar nav" >
         <Link to="/" className="navbar-brand" >JCS</Link>
         <ul className="nav navbar-nav">
           {this.renderLinks()}
