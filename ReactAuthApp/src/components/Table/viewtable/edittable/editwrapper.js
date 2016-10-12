@@ -28,6 +28,7 @@ for(var t in this.props.table ){
 		if(this.props.params.id==this.props.table[t]._id){
 			return (
 			      <div className={styles.editable_container}>
+               <div className={styles.title_table}>{this.props.table[t].tableName}</div> 
 			         <EditTable data={this.props.table[t]} onSave={this.saveNewTable.bind(this)}/ >
 			      </div>
     			);

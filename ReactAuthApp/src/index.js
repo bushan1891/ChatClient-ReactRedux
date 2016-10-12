@@ -18,7 +18,7 @@ import ViewTable from './components/Table/viewtable/viewtable';
 import EditTable from './components/Table/viewtable/edittable/edittable';
 import EditWrapper from './components/Table/viewtable/edittable/editwrapper';
 import Cart_Index from './components/Cart/cart_index';
-
+import {cartExport} from './components/Cart/cart_saga'
 import RequireAuth from './components/auth/require_auth';
 
 import Auth0_lock from './components/auth/auth0_login';
@@ -40,7 +40,7 @@ const store = createStoreWithMiddleware(reducers);
 sagaMiddleware.run(Config);
 sagaMiddleware.run(postTable);
 sagaMiddleware.run(cart);
-
+sagaMiddleware.run(cartExport);
 
 
 const token = localStorage.getItem('token');

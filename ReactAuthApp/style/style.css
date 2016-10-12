@@ -52,6 +52,7 @@ table {
 body{
 font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 15px;
+overflow-x: hidden;
 }
 .left_sidebar{
 	margin:0px !important;
@@ -76,7 +77,7 @@ font-size: 14px;
 }
 
 nav{
-	background-color: #14120C;
+	background-color:#016682;
 	border-radius: 0px !important;
 }
 

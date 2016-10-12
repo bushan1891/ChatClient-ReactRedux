@@ -10,6 +10,7 @@ export default function(state=initialState,action){
 
 		case UPDATE_TO_CART:
 		const table =action.payload;
+		console.log(JSON.stringify(table));
 		return {...state,table:table};
 
 		case ADD_TO_CART:

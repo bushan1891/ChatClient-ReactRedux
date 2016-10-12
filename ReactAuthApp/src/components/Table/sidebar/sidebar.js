@@ -30,12 +30,16 @@ class SideBar extends Component{
 			<h2 className={styles.module_heading}>Cart</h2>
 			<ul className={styles.side_list}>
 				<li className={styles.item}><Link to="/cart">Cart Item</Link>
-				
 				{this.renderCartCount()}
-				
 				</li>
 				<li className={styles.item}><Link to="/">View Table</Link></li>
 			</ul>
+			<h2 className={styles.module_heading}>Account</h2>
+			<ul className={styles.side_list}>
+				<li className={styles.item}><Link to="/cart">Account</Link></li>
+				<li className={styles.item}><Link to="/">View Account</Link></li>
+			</ul>
+
 		</div>
 			)
 		

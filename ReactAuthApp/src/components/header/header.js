@@ -30,7 +30,7 @@ renderLinks(){
         <Link to="/signout" className="nav-link">Sign out</Link>
         </li> 
         <li className="nav-item pull-xs-right"> 
-        <Link to="/" className="nav-link"><i className="fa fa-shopping-cart fa-fw"></i>Cart   {this.renderCartCount()} 
+        <Link to="/cart" className="nav-link"><i className="fa fa-shopping-cart fa-fw"></i>Cart   {this.renderCartCount()} 
         </Link>
         </li> 
       </ul>
