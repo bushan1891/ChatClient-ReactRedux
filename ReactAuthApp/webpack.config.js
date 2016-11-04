@@ -9,7 +9,7 @@ module.exports = {
   ],
   output: {
     path: __dirname,
-    publicPath: '/',
+    publicPath: '/public',
     filename: 'bundle.js'
   },plugins: [
     new LiveReloadPlugin({
