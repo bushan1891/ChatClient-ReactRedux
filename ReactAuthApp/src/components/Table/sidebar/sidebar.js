@@ -32,12 +32,17 @@ class SideBar extends Component{
 				<li className={styles.item}><Link to="/cart">Cart Item</Link>
 				{this.renderCartCount()}
 				</li>
-				<li className={styles.item}><Link to="/">View Table</Link></li>
+				<li className={styles.item}><Link to="/view_template">View Template</Link></li>
 			</ul>
 			<h2 className={styles.module_heading}>Account</h2>
 			<ul className={styles.side_list}>
-				<li className={styles.item}><Link to="/cart">Account</Link></li>
-				<li className={styles.item}><Link to="/">View Account</Link></li>
+				<li className={styles.item}><Link to="/account">Account</Link></li>
+				<li className={styles.item}><Link to="/view_account">View Account</Link></li>
+			</ul>
+			<h2 className={styles.module_heading}>Collaboration</h2>
+			<ul className={styles.side_list}>
+				<li className={styles.item}><Link to="/collabaration">CreateRoom</Link></li>
+				<li className={styles.item}><Link to="/joinroom">JoinRoom</Link></li>
 			</ul>
 
 		</div>

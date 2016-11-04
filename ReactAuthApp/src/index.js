@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga'
-
+import _ from 'lodash';
 import App from './components/app';
 import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
@@ -18,11 +18,21 @@ import ViewTable from './components/Table/viewtable/viewtable';
 import EditTable from './components/Table/viewtable/edittable/edittable';
 import EditWrapper from './components/Table/viewtable/edittable/editwrapper';
 import Cart_Index from './components/Cart/cart_index';
-import {cartExport} from './components/Cart/cart_saga'
+import {cartExport} from './components/Cart/cart_saga';
+import {accountSaga} from './components/account/account_saga';
+import {collab} from './components/collabaration/collab_saga';
+import Auth0_login from './components/auth/auth0_login';
+import AuthService from './utils/AuthService' 
+
 import RequireAuth from './components/auth/require_auth';
-
+import CreateAccount from './components/account/create_account';
+import ViewAccount from './components/account/view_account';
+import ManageAccount from './components/account/manage-account/manage_account.js';
 import Auth0_lock from './components/auth/auth0_login';
-
+import View_Template from './components/cart/view_template';
+import Collabaration from './components/collabaration/collabaration_index.js';
+import Joinroom from './components/collabaration/room/room_index';
+import Chat from './components/collabaration/room/chat';
 
 import reducers from './reducers';
 import { Router , Route , IndexRoute , browserHistory } from 'react-router';
@@ -41,6 +51,9 @@ sagaMiddleware.run(Config);
 sagaMiddleware.run(postTable);
 sagaMiddleware.run(cart);
 sagaMiddleware.run(cartExport);
+sagaMiddleware.run(accountSaga);
+sagaMiddleware.run(collab);
+
 
 
 const token = localStorage.getItem('token');
@@ -53,20 +66,38 @@ store.dispatch({type:AUTH_USER});
 // dispatch boot up actions
 store.dispatch({type:'CONFIG'});
 
+const auth = new AuthService("owZUf4N2FAMGaOVj76SEi1LV35HCWtKL", "jcstest.auth0.com");
+// validate authentication for private routes
+const requireAuth = (nextState, replace) => {
+  if (!auth.loggedIn()) {
+    replace({ pathname: '/signin' })
+  }
+}
+
+
+
 ReactDOM.render(
   <Provider store={store}>
 
     <Router history ={browserHistory} >
       <Route path ="/" component = {App} >
-        <Route path="/signin" component ={Signin} />
+        <Route path="/signin" component ={Auth0_login} />
         <Route path="/signout" component ={Signout} />
         <Route path="/signup" component ={Signup} />
-        <Route path="/table" component ={Table} >
+        <Route path="/table" component ={Table} onEnter={requireAuth} >
           <Route path="/table/create" component= {CreateTable}/>
           <Route path="/table/view" component= {ViewTable}/>
           <Route path="/table/view/:id" component = {EditWrapper} />
           <Route path="/cart" component ={Cart_Index} />
+          <Route path="/account" component={CreateAccount}/>
+          <Route path ="/account/:id" component={ManageAccount}/>
+          <Route path="/view_account" component={ViewAccount}/>
+          <Route path="/view_template" component={View_Template}/>
+          <Route path="/collabaration" component={Collabaration} />
+          <Route path="/joinroom" component={Joinroom} />
+          <Route path="/joinroom/:id" component={Chat} />
         </Route>
+        
 		<Route path="/feature" component={RequireAuth(Feature)}/>
       </Route>
   </Router>

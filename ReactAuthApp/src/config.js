@@ -1,3 +1,5 @@
 export const config ={
-	serverUrl:"http://localhost:3090/"
+	serverUrl:"https://warm-mesa-71741.herokuapp.com/"
 }
+//https://warm-mesa-71741.herokuapp.com/
+//http://localhost:5000/

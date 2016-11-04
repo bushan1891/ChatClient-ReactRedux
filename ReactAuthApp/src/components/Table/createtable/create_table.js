@@ -27,7 +27,9 @@ class CreateTable extends Component{
 		
 	    const { handleSubmit,fields:{ tableName,tableColumnCount,tableRowCount,tableHeader} } = this.props;
 		return (
-			<form className={styles.create_table_form} onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+			<div className={styles.create_table_form_container}>
+				<div className={styles.table_title}>Create Table</div>
+				<form className={styles.create_table_form} onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 				<fieldset className="form-group">
 					<lable className="form-label">TableName</lable>
 					<input type="text" className="form-control" {...tableName}/>
@@ -48,8 +50,10 @@ class CreateTable extends Component{
 					<input type="text" className="form-control" {...tableHeader}/>
 					{tableHeader.touched && tableHeader.error&& <div className="alert alert-danger">tableHeader Error</div>}
 				</fieldset>
-				<button type="submit" className="btn btn-primary">CreateTable</button>
+				<button type="submit" className="btn btn-default">CreateTable</button>
 			</form>
+			</div>
+			
 			)
 	}
 }

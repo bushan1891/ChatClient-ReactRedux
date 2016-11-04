@@ -1,4 +1,5 @@
 import { CART_ITEM , NEW_CART_ITEM , NEW_CART} from '../Table/viewtable/edittable/types';
+import {SAVE_AS_TEMPLATE} from './types';
 import React , { Component} from 'react';
 import {connect} from 'react-redux';
 import styles from './styles.css';
@@ -15,8 +16,54 @@ renderTable(table){
 					)
 			}
 }	
+
+saveAsTemplate(){
+
+
+const createTemplate = this.props.createTemplate;
+const cart =this.props.cart;
+	if(this.props.cart.table.length==0){
+		swal('Cart Is empty');
+	}
+	else{
+	swal({   
+		     title: "An input!",
+	         text: "Enter the Template Title",
+	         type: "input",   
+	         showCancelButton: true, 
+	         closeOnConfirm: false, 
+             animation: "slide-from-top",
+             inputPlaceholder: "Write something" },
+      function(inputValue){
+             if (inputValue === false)
+	                  return false;      
+           
+              if (inputValue === "") 
+              	{   
+              	  swal.showInputError("You need to write something!");
+              	       return false  
+      	        } 
+      	        if(inputValue!= "" ) {
+      	        swal("Nice!", "You wrote: " + inputValue, "success");
+				
+				createTemplate({cart:cart.table,title:inputValue});
+
+      	        }   
+	        	
+
+	       });
+		
+	
+	}
+
+
+
+}
+
 generateWBS(){
 	let cartName='';
+	const cart = this.props.cart;
+	const createWBS=this.props.createWBS;
 	if(this.props.cart.table.length>0){
 		swal({   title: "An input!",  
 		 text: "Write something interesting:", 
@@ -36,9 +83,10 @@ generateWBS(){
 			
 				cartName=inputValue;
 	            swal("Nice!", "You wrote: " + inputValue, "success");
+	            createWBS({cart_name:inputValue,data:cart.table});
 		   
 		   });
-			this.props.createWBS({cart_name:'test',data:this.props.cart.table});
+			
 
 	}
 	else{
@@ -59,6 +107,14 @@ render(){
 		<div className={styles.title}>Current Cart Elements </div>
 			<div className={styles.sub_nav}>
 			<ul className="nav navbar-nav navbar-right">
+					<li className="nav-item"> 
+				        <Link onClick={this.saveAsTemplate.bind(this)} className="nav-link">
+				        <div className={styles.pointer_cursor}>
+				        <i className="fa fa-file-text fa-fw"></i>
+				        Save Template
+				        </div>
+				        </Link>
+			        </li>
 			        <li className="nav-item pull-xs-right "> 
 				        <Link onClick={this.generateWBS.bind(this)} className="nav-link">
 				        <div className={styles.pointer_cursor}>
@@ -90,6 +146,7 @@ render(){
 function mapDispatchToProps(dispatch){
 return{
 	createWBS : (data)=>dispatch(createAction(CREATEWBS)(data)),
+	createTemplate : (data) => dispatch(createAction(SAVE_AS_TEMPLATE)(data))
 }
 }
 
